@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TSOLFLIX</title>
+
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
+  </head>
+  <body>
+    <h2 align="center" class="titleText">TSOLFLIX</h2>
+    <h1 class="headText"> Movies </h1>
+    <hr class="linee">
+<div>
+
+    {% for item in data['content'] %}
+      {% if item['type']=="1" %}
+    <div class="imgContainer">
+    <form id="meForm" method="POST">
+        <input type="hidden" name="id" value="{{ item['id'] }}" size ="40" />
+        <input type="hidden" name="dest" value="0" size ="40" />
+        <input class="ImgFront" type="image" value="{{ item['title'] }}" src="http://192.168.1.20:80/{{ item['path'] }}img.jpg"/>
+    </form>
+    </div>
+      {% endif %}
+    {% endfor %}
+</div>
+
+
+    <h1 class="headText"> Shows </h1>
+<hr class="linee">
+    {% for item in data['content'] %}
+    {% if item['type']=="0" %}
+  <div class="imgContainer">
+  <form id="meForm" method="POST">
+      <input type="hidden" name="id" value="{{ item['id'] }}" size ="40" />
+      <input type="hidden" name="dest" value="0" size ="40" />
+      <input class="ImgFront" type="image" value="{{ item['title'] }}" src="http://192.168.1.20:80/{{ item['path'] }}img.jpg"/>
+  </form>
+  </div>
+    {% endif %}
+    {% endfor %}
+
+
+
+  </body>
+</html>

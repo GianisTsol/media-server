@@ -1,0 +1,28 @@
+.center {
+  display: flex;
+  margin-top: -90px;
+  margin-left: 70px;
+}
+
+body {
+    background-color: #121212;
+}
+.button1 {
+  background-color: #e50914;
+  border: none;
+  color: white;
+  padding: 10px 23px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 2%;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button1:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

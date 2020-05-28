@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TSOLFLIX PLAYER</title>
+
+  </head>
+  <body>
+
+<link rel="stylesheet" type="text/css" href="static/css/player.css">
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src="static/build/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="static/build/mediaelementplayer.css" />
+
+<form id="myForm" method="POST">
+    <input type="hidden" name="time" value="0" size ="40" />
+    <input type="hidden" name="dest" value="0" size ="40" />
+</form>
+
+<div>
+<button class="button1" onclick="goBack()" type="button"><--</button>
+<p>{{ time }}</p>
+
+<div class="center">
+<video id="video" style="width:100%;height:100%;" controls="controls" width="100%" height="100%"
+ preload="auto" poster="my_video_poster.png">
+  <source src=http://192.168.1.20/{{ video }} type="video/mp4" onload="javascript:event.target.port=80">
+  <track kind="subtitles" src="static/The.Irishman.srt" srclang="en" />
+</video>
+</div>
+</div>
+<script>
+var vid = document.getElementById("video");
+var form = document.getElementById("myForm")
+
+$('audio,video').mediaelementplayer();
+vid.currentTime = {{ time }};
+
+
+function goBack(){
+form.time.value = vid.currentTime;
+form.dest.value = 1;
+form.submit();
+}
+
+</script>
+
+  </body>
+</html>
