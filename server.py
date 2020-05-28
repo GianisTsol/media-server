@@ -1,3 +1,4 @@
+#/usr/bin/python3
 from flask import Flask, render_template, request
 import sys
 import data_handler as dthd
